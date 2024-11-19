@@ -1,0 +1,123 @@
+
+#dummyArea {
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+}
+
+#enclosure {
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#pattern {
+    position: absolute;
+    left: 35%;
+    top: 11%;
+}
+
+#resetPattern {
+    position: absolute;
+    top: 151px;
+    left: 70%;
+    background-color: #6476D8;
+    padding: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+	background-color: #000a23;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #808591;
+    float: left;
+    position: relative;
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 20;
+}
+
+.selected {
+    border: 1px solid green;
+    background-color: white
+}
+
+#row1 {
+    position: absolute;
+    top: 8px;
+    width: 0px;
+}
+
+#row2 {
+    position: absolute;
+    top: 86px;
+    width: 0px;
+}
+
+#row3 {
+    position: absolute;
+    top: 164px;
+    width: 0px;
+}
+
+.buttonA {
+    left: 0px;
+    position: absolute;
+}
+
+.buttonB {
+    left: 80px;
+    position: absolute;
+}
+
+.buttonC {
+    left: 160px;
+    position: absolute;
+}
+
+#heading{
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    padding-bottom: 2px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    position: absolute;
+    left: 39%;
+}
+
+#info{
+    position: absolute;
+    top: 170px;
+    left: 10%;
+    height: 86px;
+    width: 200px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;  
+}
+.error{
+    color:red;
+}
+
+.info{
+    color: #666;
+}
